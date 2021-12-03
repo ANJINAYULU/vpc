@@ -1,0 +1,34 @@
+networking-vpc
+
+1.create the vpc with the cidr range
+2.create the subnets
+3.create the igw
+4.create the nat-gw in the publicSubnet
+5.-vpc implementation
+
+
+Go to the AWS account 
+Select the region 
+
+Networking --Service --Create the vpc 
+Step-1: Create the vpc(cidr range)-10.0.0.0/16--Actions--Edit DNS host name--Enable the checkbox
+
+Step-2: Create the subnets
+
+dev-private-subnet-1-zone-1-10.0.0.0/19-10.0.31.254
+dev-private-subnet-2-zone-2-10.0.32.0/19-10.0.63.254
+dev-private-subnet-3-zone-3-10.0.64.0/19-10.0.95.254
+
+dev-public-subnet-1-zone-1-10.0.96.0/22-10.0.99.254
+dev-public-subnet-2-zone-2-10.0.100.0/22-10.0.103.254
+dev-public-subnet-3-zone-3-10.0.104.0/22-10.0.107.254
+
+dev-data-subnet-1-zone-1-10.0.108.0/22
+dev-data-subnet-2-zone-2-10.0.112.0/22
+dev-data-subnet-3-zone-3-10.0.116.0/22
+Step-3: Create the igw and attach to VPC
+Step-4: Create the nat-gw in public subnet (any public subnet)--elasticIP(static publicIP)
+Step-5: Create the route tables
+Public route --Associate Public Subnet---Add IGW 
+Private route--Associate Private Subnet---Add NAt-Gw
+Data route -Associate Data Subnets--Add NAT-Gw
